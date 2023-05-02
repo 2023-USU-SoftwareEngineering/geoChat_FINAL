@@ -1,4 +1,4 @@
-import logo from '../assets/GeoChatLogo.png';
+import logo from '../assets/Logo.png';
 import "../index.css";
 
 function Login() {  

@@ -1,5 +1,5 @@
 import "../index.css";
-import logo from '../assets/GeoChatLogo.png';
+import logo from '../assets/Logo.png';
 
 
 function Nav() {  

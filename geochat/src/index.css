@@ -11,6 +11,8 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+
 img {
   max-width: 300px;
   max-height: 300px;
@@ -52,22 +54,21 @@ button {
 }
 
 .sidebar {
-  flex: 40%;
+  flex: 25%;
   background-color: #225174;
 }
 
 .chat {
-  flex: 60%;
+  flex: 75%;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #1e4360;
   height: 50px;
   padding: 10px;
   justify-content: space-between;
-  color: #202428;
 }
 
 .title {
@@ -87,7 +88,7 @@ button {
   padding: 0;
   font: inherit;
   text-decoration: underline;
-  color: #202428;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
@@ -95,7 +96,7 @@ button {
   display: flex;
   gap: 10px;
   font-weight: bold;
-  color: #202428;
+  color: #FFFFFF;
 }
 
 
