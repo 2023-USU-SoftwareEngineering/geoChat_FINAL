@@ -1,15 +1,22 @@
 import "../index.css";
 import logo from '../assets/Logo.png';
+import { signOut } from "firebase/auth"
+import { auth } from "../firbase";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 
 function Nav() {  
+  const { currentUser } = useContext(AuthContext);
+
     return (
       <div className="navbar">
-        <img className="smalllogo" src={logo} alt="GeoChat logo"></img>
-        <div className="userdisplay">
-          <img src="" alt="" />
-          <span className="navuser"> USER </span> 
-          <button className="navbutton"> log out </button> 
+         <div className="userdisplay">
+          <img  src={currentUser.photoURL} alt="" />
+          <h1> {currentUser.displayName} </h1> 
+        </div>
+          <div className="userdisplay">
+          <button className="navbutton" onClick={() => signOut(auth)}> log out </button> 
         </div>        
       </div>
     )

@@ -205,6 +205,27 @@ button {
   max-width: max-content;
 }
 
+.userdisplay {
+  display: flex;
+}
+
+
+.userdisplay img {
+  background-color: #ddddf7;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 2px;
+  flex: 1;
+}
+
+.userdisplay h1 {
+  color: white;
+  flex: 1;
+  padding-left: 10px;
+}
+
 .title {
   color:#202428;
   font-size: 20px;
@@ -234,6 +255,10 @@ button {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+form button{
+  cursor: pointer;
 }
 
 

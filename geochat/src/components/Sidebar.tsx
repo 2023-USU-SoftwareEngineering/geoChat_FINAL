@@ -1,5 +1,5 @@
 import "../index.css";
-import Nav from "./nav";
+import Nav from "./Nav";
 import Friends from "./Friends";
 
 function Sidebar() {  

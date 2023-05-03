@@ -5,11 +5,15 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
 
 import { auth, db, storage } from "../firbase"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, Link } from "react-router-dom"
 
 
 function Register() {  
     const [err, setErr] = useState(false);
+    const navigate = useNavigate();
+
+
     const handleSubmit = async (e: {
       target: any; preventDefault: () => void; }) => {
       e.preventDefault()
@@ -46,9 +50,9 @@ function Register() {
                 photoURL: downloadURL
               });
 
-              await setDoc(doc(db, "userChats", res.user.uid), {
-                
-              });
+              await setDoc(doc(db, "userChats", res.user.uid), {});
+              navigate("/");
+
             });
           }
         );
@@ -72,7 +76,7 @@ function Register() {
             <button> Sign Up </button>
             { err && <span> Oops! Something went wrong </span>}
         </form> 
-        <p> Do you already have an account? Login </p>
+        <p> Already have an account? <Link to="/login"> Log In </Link> </p>
       </div>
       </div>
     )

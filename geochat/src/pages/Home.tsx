@@ -1,6 +1,6 @@
 import logo from '../assets/GeoChatLogo.png';
-import Chat from '../components/chat';
-import Sidebar from '../components/sidebar';
+import Chat from '../components/Chat';
+import Sidebar from '../components/Sidebar';
 import "../index.css";
 
 function Home() {  
