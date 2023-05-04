@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "firebase": "^9.21.0",
-    "mapbox-gl": "^1.13.3",
-    "react-mapbox-gl": "^5.1.1",
-    "react-router-dom": "^6.11.0"
-  }
-}
