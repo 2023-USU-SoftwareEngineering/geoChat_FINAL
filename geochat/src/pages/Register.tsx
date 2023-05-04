@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
 
-import { auth, db, storage } from "../firbase"
+import { auth, db, storage } from "../firebase"
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from "react-router-dom"
 
@@ -24,43 +24,35 @@ function Register() {
 
       try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
-
-        const storageRef = ref(storage, displayName);
-
-        const uploadTask = uploadBytesResumable(storageRef, file);
-
-        uploadTask.on('state_changed', 
-          (snapshot) => {
-                      
-          }, 
-          (error) => {
-            setErr(true);
-          }, 
-          () => {
-            getDownloadURL(uploadTask.snapshot.ref).then( async (downloadURL) => {
+        const date = new Date().getTime();
+        const storageRef = ref(storage, `${displayName + date}`);
+  
+        await uploadBytesResumable(storageRef, file).then(() => {
+          getDownloadURL(storageRef).then(async (downloadURL) => {
+            try {
               await updateProfile(res.user, {
                 displayName,
-                photoURL: downloadURL
+                photoURL: downloadURL,
               });
-
               await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid,
                 displayName,
                 email,
-                photoURL: downloadURL
+                photoURL: downloadURL,
               });
-
+  
               await setDoc(doc(db, "userChats", res.user.uid), {});
               navigate("/");
-
-            });
-          }
-        );
+            } catch (err) {
+              console.log(err);
+              setErr(true);
+            }
+          });
+        });
       } catch (err) {
         setErr(true);
-      } 
-
-    }
+      }
+    };
     return (
       <div className="formContainer">   
       <div className="formWrapper">

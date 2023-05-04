@@ -1,13 +1,14 @@
 import "../index.css";
 import logo from '../assets/Logo.png';
 import { signOut } from "firebase/auth"
-import { auth } from "../firbase";
+import { auth } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 
 function Nav() {  
   const { currentUser } = useContext(AuthContext);
+  
 
     return (
       <div className="navbar">

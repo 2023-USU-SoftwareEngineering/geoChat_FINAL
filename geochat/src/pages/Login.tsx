@@ -3,7 +3,7 @@ import logo from '../assets/Logo.png';
 import "../index.css";
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../firbase';
+import { auth } from '../firebase';
 
 
 function Login() {
